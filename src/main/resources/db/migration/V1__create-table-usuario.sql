@@ -1,0 +1,8 @@
+CREATE TABLE usuario (
+    id VARCHAR(255) PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    celular VARCHAR(50) NOT NULL,
+    saldo DECIMAL(19, 2) NOT NULL,
+    ativo TINYINT(1) NOT NULL
+);
