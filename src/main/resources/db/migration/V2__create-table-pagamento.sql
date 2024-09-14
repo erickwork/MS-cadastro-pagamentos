@@ -1,6 +1,6 @@
 CREATE TABLE pagamento (
-    id VARCHAR(255) PRIMARY KEY,
-    id_usuario VARCHAR(255),
+    id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_usuario bigint(20),
     tipo VARCHAR(50) NOT NULL,
     valor DECIMAL(19, 2) NOT NULL,
     vencimento DATE NOT NULL,

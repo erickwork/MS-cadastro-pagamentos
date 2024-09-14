@@ -1,5 +1,7 @@
 package br.com.erick.cadastro.domain;
 
+import br.com.erick.cadastro.dto.PagamentoCadastro;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +23,8 @@ public class Pagamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
@@ -34,4 +37,10 @@ public class Pagamento {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    public Pagamento(PagamentoCadastro dto, Usuario usuario) {
+        this.usuario = usuario;
+        this.tipo = dto.getTipo();
+        this.valor = dto.getValor();
+        this.vencimento = dto.getVencimento();
+    }
 }

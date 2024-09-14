@@ -1,6 +1,7 @@
 package br.com.erick.cadastro.dto;
 
 import br.com.erick.cadastro.domain.TipoPagamento;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;

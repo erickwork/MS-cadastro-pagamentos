@@ -1,5 +1,6 @@
 package br.com.erick.cadastro.domain;
 
+import br.com.erick.cadastro.dto.UsuarioCadastro;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,4 +27,11 @@ public class Usuario {
     private BigDecimal saldo;
     private boolean ativo;
 
+    public Usuario(UsuarioCadastro dto) {
+        this.nome = dto.getNome();
+        this.email = dto.getEmail();
+        this.celular = dto.getCelular();
+        this.saldo = dto.getSaldo();
+        this.ativo = true;
+    }
 }
